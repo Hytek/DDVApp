@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bkg_main"
+    android:id="@+id/tab_snack">
+
+    <EditText
+        android:id="@+id/tabSnAddDescription"
+        android:background="@color/background_color"
+        android:layout_width="350dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="4dp"
+        android:paddingLeft="4dp"
+        android:gravity="start"
+        android:textAlignment="textStart"
+        android:hint="@string/meal_description"/>
+
+    <Button
+        android:id="@+id/btn_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabSnAddDescription"
+        android:text="Gem"
+        />
+
+    <TextView
+        android:id="@+id/tabSnack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="You Are In Tab 4"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

@@ -1,67 +1,81 @@
 package com.binarymake.ddvapp;
 
 /**
- * Created by Jakob on 05-08-2015.
+ * Created by Jakob on 08-08-2015.
  */
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.List;
 
-public class WeeklyAdapter extends RecyclerView.Adapter<WeeklyAdapter.WeeklyViewHolder> {
+public class WeeklyAdapter extends RecyclerView.Adapter<WeeklyAdapter.OverviewViewHolder> {
 
-    private List<WeeklyInfo> weeklyList;
+    private List<WeeklyInfo> overviewList;
 
-    public WeeklyAdapter(List<WeeklyInfo> weeklyList) {
+    public WeeklyAdapter(List<WeeklyInfo> overviewList) {
 
-        this.weeklyList = weeklyList;
+        this.overviewList = overviewList;
     }
 
     @Override
     public int getItemCount() {
 
-        return weeklyList.size();
+        return overviewList.size();
     }
 
     @Override
-    public void onBindViewHolder(WeeklyViewHolder weeklyViewHolder, int i) {
-        WeeklyInfo wi = weeklyList.get(i);
-        weeklyViewHolder.vBreakfast.setText(wi.breakfast);
-        weeklyViewHolder.vDinner.setText(wi.dinner);
-        weeklyViewHolder.vLunch.setText(wi.lunch);
-        weeklyViewHolder.vTitle.setText(wi.weekday);
-        weeklyViewHolder.vSnacks.setText(wi.snacks);
+    public void onBindViewHolder(OverviewViewHolder overviewViewHolder, int i) {
+        WeeklyInfo oi = overviewList.get(i);
+
+        overviewViewHolder.vMeat1.setText(oi.meat1);
+        overviewViewHolder.vFish1.setText(oi.fish1);
+        overviewViewHolder.vEggs.setText(oi.eggs);
+        overviewViewHolder.vMeat2.setText(oi.meat2);
+        overviewViewHolder.vMeat3.setText(oi.meat3);
+        overviewViewHolder.vFish2.setText(oi.fish2);
+        overviewViewHolder.vCheese1.setText(oi.cheese1);
+        overviewViewHolder.vCheese2.setText(oi.cheese2);
+        overviewViewHolder.vCereal.setText(oi.cereal);
 
     }
 
     @Override
-    public WeeklyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public OverviewViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
-                inflate(R.layout.card_layout, viewGroup, false);
+                inflate(R.layout.layout_weekly, viewGroup, false);
 
-        return new WeeklyViewHolder(itemView);
+        return new OverviewViewHolder(itemView);
     }
 
-    public static class WeeklyViewHolder extends RecyclerView.ViewHolder {
+    public static class OverviewViewHolder extends RecyclerView.ViewHolder {
 
-        protected TextView vBreakfast;
-        protected TextView vDinner;
-        protected TextView vLunch;
-        protected TextView vTitle;
-        protected TextView vSnacks;
 
-        public WeeklyViewHolder(View v) {
+        protected TextView vMeat1;
+        protected TextView vFish1;
+        protected TextView vEggs;
+        protected TextView vMeat2;
+        protected TextView vMeat3;
+        protected TextView vFish2;
+        protected TextView vCheese1;
+        protected TextView vCheese2;
+        protected TextView vCereal;
+
+        public OverviewViewHolder(View v) {
             super(v);
-            vBreakfast =  (TextView) v.findViewById(R.id.txtBreakfast);
-            vDinner = (TextView)  v.findViewById(R.id.txtDinner);
-            vLunch = (TextView)  v.findViewById(R.id.txtLunch);
-            vTitle = (TextView) v.findViewById(R.id.title);
-            vSnacks = (TextView) v.findViewById(R.id.txtSnacks);
 
+            vMeat1 = (TextView) v.findViewById(R.id.meat1);
+            vFish1 = (TextView) v.findViewById(R.id.fish1);
+            vEggs = (TextView) v.findViewById(R.id.eggs);
+            vMeat2 = (TextView) v.findViewById(R.id.meat2);
+            vMeat3 = (TextView) v.findViewById(R.id.meat3);
+            vFish2 = (TextView) v.findViewById(R.id.fish2);
+            vCheese1 = (TextView) v.findViewById(R.id.cheese1);
+            vCheese2 = (TextView) v.findViewById(R.id.cheese2);
+            vCereal = (TextView) v.findViewById(R.id.cereal);
         }
     }
 }

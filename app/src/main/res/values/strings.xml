@@ -5,4 +5,11 @@
     <string name="action_settings">Settings</string>
     <string name="main_next_week">Næste</string>
     <string name="main_prev_week">Forrige</string>
+    <string name="meal_description">Beskrivelse af måltid</string>
+    <string name="meal_category">0</string>
+    <string name="breakfast_created_successfully">Morgenmad tilføjet</string>
+    <string name="lunch_created_successfully">Frokost tilføjet</string>
+    <string name="dinner_created_successfully">Aftensmad tilføjet</string>
+    <string name="snack_created_successfully">Mellemmåltid tilføjet</string>
+    <string name="empty_fields_message">Et eller flere felter mangler at blive udfyldt</string>
 </resources>
