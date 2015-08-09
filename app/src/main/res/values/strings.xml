@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DDV App</string>
+
+   <!-- <string name="hello_world">Hello world!</string> -->
+    <string name="action_settings">Settings</string>
+    <string name="main_next_week">Næste</string>
+    <string name="main_prev_week">Forrige</string>
+</resources>

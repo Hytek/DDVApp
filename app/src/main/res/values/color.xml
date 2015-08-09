@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bkg_card">#2191A3</color>
+    <color name="bkg_main">#D5F1F7</color>
+    <color name="background_color">#FFFFFF</color>
+    <color name="border_color">#2191A3</color>
+    <color name="black">#000000</color>
+    <color name="bkg_top">#176470</color>
+</resources>

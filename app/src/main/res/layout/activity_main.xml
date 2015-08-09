@@ -1,0 +1,195 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bkg_main"
+    tools:context=".MainActivity">
+
+    <include android:id="@+id/app_bar" layout="@layout/toolbar"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/app_bar"
+        android:id="@+id/weeklyOverviewHeaderTable" >
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/table0">
+
+            <TextView
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Husk hver uge"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:background="@drawable/bordertop"
+                android:id="@+id/textView0.0"
+                android:layout_column="0" />
+
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="30dp"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Valgfri hver uge"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:background="@drawable/bordertop"
+                android:id="@+id/textView0.1"
+
+                android:layout_column="1" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/weeklyOverviewTable"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_below="@id/weeklyOverviewHeaderTable"
+        android:background="@drawable/bordertop"
+        android:stretchColumns="0,1,2" />
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/table1"
+        android:layout_below="@id/weeklyOverviewHeaderTable"
+        >
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="1.0                                     1.0"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView1.0"
+            android:layout_column="0"
+            />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="1.1"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView1.1"
+            android:layout_column="1"
+            />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="1.2"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView1.2"
+            android:layout_column="2" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/table2"
+        android:layout_below="@id/table1">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="2.0"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView2.0"
+            android:layout_column="0"
+            />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="2.1"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView2.1"
+            android:layout_column="1"
+            />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="2.2"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView2.2"
+            android:layout_column="2" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/table3"
+        android:layout_below="@id/table2">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="3.0"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView3.0"
+            android:layout_column="0"
+            />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="3.1"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView3.1"
+            android:layout_column="1"
+            />
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:paddingLeft="2dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="3.2"
+            android:textSize="16dp"
+            android:background="@drawable/bordertop"
+            android:id="@+id/textView3.2"
+            android:layout_column="2" />
+
+    </TableRow>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/cardList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/weeklyOverviewTable"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        />
+
+</RelativeLayout>
