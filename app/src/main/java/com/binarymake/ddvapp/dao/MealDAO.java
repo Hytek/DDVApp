@@ -63,6 +63,21 @@ public class MealDAO {
         return newMeal;
     }
 
+    public Meal updateMeal(int id, int type, String description) {
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COLUMN_MEAL_ID, id);
+        values.put(DatabaseHelper.COLUMN_MEAL_TYPE, type);
+        values.put(DatabaseHelper.COLUMN_MEAL_DESCRIPTION, description);
+        long insertId = mDatabase.update(DatabaseHelper.TABLE_MEALS, values, DatabaseHelper.COLUMN_MEAL_ID + "=" + id, null);
+        Cursor cursor = mDatabase.query(DatabaseHelper.TABLE_MEALS, mAllColumns,
+                DatabaseHelper.COLUMN_MEAL_ID + " = " + insertId, null, null,
+                null, null);
+        cursor.moveToFirst();
+        Meal newMeal = cursorToMeal(cursor);
+        cursor.close();
+        return newMeal;
+    }
+
     public void deleteMeal(Meal meal) {
         long id = meal.getId();
         // delete all mealWaters of this meal
@@ -168,7 +183,7 @@ public class MealDAO {
         return listSnMeals;
     }
 
-    public Meal getMealById(long id) {
+    public Meal getMealById(int id) {
         Cursor cursor = mDatabase.query(DatabaseHelper.TABLE_MEALS, mAllColumns,
                 DatabaseHelper.COLUMN_MEAL_ID + " = ?",
                 new String[] { String.valueOf(id) }, null, null, null);

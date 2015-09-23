@@ -35,10 +35,10 @@ public class AddActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        dag = getIntent().getIntExtra("dag", 3);
-        tidspunkt = getIntent().getIntExtra("tidspunkt", 3);
-        maaltid = getIntent().getIntExtra("maaltid", 3);
-        Toast.makeText(this, "dag er "+dag+" tid er "+tidspunkt+" maaltidID i AddActivity er "+ maaltid, Toast.LENGTH_LONG).show();
+        dag = getIntent().getIntExtra("dag", -1);
+        tidspunkt = getIntent().getIntExtra("tidspunkt", -1);
+        maaltid = getIntent().getIntExtra("maaltid", -1);
+//        Toast.makeText(this, "dag er "+dag+" tid er "+tidspunkt+" maaltidID i AddActivity er "+ maaltid, Toast.LENGTH_LONG).show();
 
 //        activateToolbar(2);
 

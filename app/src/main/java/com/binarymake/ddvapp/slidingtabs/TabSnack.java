@@ -32,19 +32,31 @@ public class TabSnack extends Fragment implements View.OnClickListener {
     Button mBtnAdd;
     private MealDAO mMealDao;
     public static final String TAG = "TabSnack";
+    private int maaltid;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         relativeLayout = (RelativeLayout) view.findViewById(R.id.tab_snack);
-        this.mMealDao = new MealDAO(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.tab_snack, container, false);
+        this.mMealDao = new MealDAO(getActivity());
 
+        maaltid = getActivity().getIntent().getIntExtra("maaltid", -1);
         mAddDescription = (EditText) view.findViewById(R.id.tabSnAddDescription);
+
+        Meal description = mMealDao.getMealById(maaltid);
+
+        if (description.getDescription().length() < 14) {
+            mAddDescription.setText(description.getDescription());
+        } else {
+            mAddDescription.setText(description.getDescription().substring(14));
+        }
+        mAddDescription.setSelection(mAddDescription.getText().length());
+
         mBtnAdd = (Button) view.findViewById(R.id.btn_add);
         mBtnAdd.setOnClickListener(this);
 
@@ -55,7 +67,7 @@ public class TabSnack extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.btn_add:
                 Editable description = mAddDescription.getText();
-                if (!TextUtils.isEmpty(description)) {
+                if (!TextUtils.isEmpty(description) && maaltid == -1) {
                     // add the meal to database
                     Meal createdMeal = mMealDao.createMeal(4, "Mellemmåltid:\n" + description.toString());
 
@@ -64,8 +76,16 @@ public class TabSnack extends Fragment implements View.OnClickListener {
                     getActivity().finish();
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
-                }
-                else {
+                } else if (!TextUtils.isEmpty(description) && maaltid != -1) {
+                    // update meal in database
+                    Meal createdMeal = mMealDao.updateMeal(maaltid, 4, "Mellemmåltid:\n" + description.toString());
+
+                    Log.d(TAG, "added meal : " + createdMeal.getType());
+                    Toast.makeText(getActivity(), R.string.snack_created_successfully, Toast.LENGTH_LONG).show();
+                    getActivity().finish();
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                } else {
                     Toast.makeText(getActivity(), R.string.empty_fields_message, Toast.LENGTH_LONG).show();
                 }
                 break;
