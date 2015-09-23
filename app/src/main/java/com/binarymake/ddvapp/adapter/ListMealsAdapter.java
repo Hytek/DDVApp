@@ -14,6 +14,7 @@ import com.binarymake.ddvapp.R;
 import com.binarymake.ddvapp.activities.AddActivity;
 import com.binarymake.ddvapp.model.Meal;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class ListMealsAdapter extends ArrayAdapter<Meal> {
@@ -107,6 +108,7 @@ public class ListMealsAdapter extends ArrayAdapter<Meal> {
             v = mInflater.inflate(R.layout.list_item_daily, parent, false);
             holder = new ViewHolder();
 
+            holder.txtWeekdays = (TextView) v.findViewById(R.id.title);
             holder.txtBrDescription = (TextView) v.findViewById(R.id.txtBreakfast);
             holder.txtLuDescription = (TextView) v.findViewById(R.id.txtLunch);
             holder.txtDiDescription = (TextView) v.findViewById(R.id.txtDinner);
@@ -115,6 +117,10 @@ public class ListMealsAdapter extends ArrayAdapter<Meal> {
         } else {
             holder = (ViewHolder) v.getTag();
         }
+
+        // fill title data (weekday)
+        List<String> weekdays = Arrays.asList("Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag");
+        holder.txtWeekdays.setText(weekdays.get(position));
 
         // fill row data (breakfast)
         final Meal currentBrItem = getBrItem(position + 1);
@@ -237,6 +243,7 @@ public class ListMealsAdapter extends ArrayAdapter<Meal> {
     }
 
     class ViewHolder {
+        TextView txtWeekdays;
         TextView txtBrDescription;
         TextView txtLuDescription;
         TextView txtDiDescription;

@@ -64,9 +64,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         database.execSQL(SQL_CREATE_TABLE_MEALS);
         database.execSQL(SQL_CREATE_TABLE_CATEGORY_WATER);
 //        database.execSQL("INSERT OR IGNORE INTO meal_water VALUES('1', 1, 'Frokost');");
-        database.execSQL("INSERT OR IGNORE INTO meal VALUES('1', 1, 'Morgenmad:');");
-        database.execSQL("INSERT OR IGNORE INTO meal VALUES('2', 2, 'Frokost:');");
-        database.execSQL("INSERT OR IGNORE INTO meal VALUES('3', 3, 'Aftensmad:');");
+        database.execSQL("INSERT OR IGNORE INTO meal VALUES('1', 1, 'Morgenmad:  \n');");
+        database.execSQL("INSERT OR IGNORE INTO meal VALUES('2', 2, 'Frokost:    \n');");
+        database.execSQL("INSERT OR IGNORE INTO meal VALUES('3', 3, 'Aftensmad:  \n');");
         database.execSQL("INSERT OR IGNORE INTO meal VALUES('4', 4, 'Mellemmåltid:');");
 //        database.execSQL("INSERT OR IGNORE INTO meal VALUES('2', 1, 'Yoghurt med 2 bananer');");
 //        database.execSQL("INSERT OR IGNORE INTO meal VALUES('3', 1, 'Yoghurt med 3 æbler');");

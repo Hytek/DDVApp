@@ -5,8 +5,6 @@ package com.binarymake.ddvapp;
  */
 
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,23 +16,21 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 import com.binarymake.ddvapp.activities.AddActivity;
 import com.binarymake.ddvapp.activities.BaseActivity;
 import com.binarymake.ddvapp.adapter.ListMealsAdapter;
-import com.binarymake.ddvapp.dao.DatabaseHelper;
 import com.binarymake.ddvapp.dao.MealDAO;
 import com.binarymake.ddvapp.model.Meal;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements OnItemClickListener, View.OnClickListener {
+public class MainActivity extends BaseActivity {
 
     public static final String TAG = "MainActivity";
 
-    public static final int REQUEST_CODE_ADD_COMPANY = 40;
+//    public static final int REQUEST_CODE_ADD_COMPANY = 40;
 
     private ListView mListviewMeals;
 
@@ -45,10 +41,6 @@ public class MainActivity extends BaseActivity implements OnItemClickListener, V
     private List<Meal> mSnListMeals;
     private ListMealsAdapter mAdapter;
 
-    private SQLiteDatabase mDatabase;
-    DatabaseHelper mDbHelper;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,26 +50,6 @@ public class MainActivity extends BaseActivity implements OnItemClickListener, V
 
         // initialize views
         initViews();
-
-        // test database
-        mDbHelper = new DatabaseHelper(this);
-        mDatabase = mDbHelper.getWritableDatabase();
-
-        Cursor query = mDatabase.rawQuery("SELECT * from meal", null);
-        if(query.moveToFirst()) {
-            do {
-
-                // Cycle through all records
-                String _id = query.getString(0);
-                String meal_type = query.getString(1);
-                String description = query.getString(2);
-//                Toast.makeText(getBaseContext(), "ID = " + _id + " Type = " + meal_type + " Description = " + description, Toast.LENGTH_SHORT).show();
-            } while(query.moveToNext());
-        } else {
-            Toast.makeText(getBaseContext(), "Error retrieving data", Toast.LENGTH_SHORT).show();
-        }
-
-        mDatabase.close();
 
         // fill the dailyListView
         mMealDao = new MealDAO(this);
@@ -102,39 +74,6 @@ public class MainActivity extends BaseActivity implements OnItemClickListener, V
 
     private void initViews() {
         this.mListviewMeals = (ListView) findViewById(R.id.view_daily_list);
-//        this.mBtnBreakfast = (Button) findViewById(R.id.btnBreakfast);
-//        this.mListviewMeals.setOnItemClickListener(this);
-
-//        mBtnBreakfast = (Button) findViewById(R.id.btnBreakfast);
-//        mBtnBreakfast.setOnClickListener(new View.OnClickListener() {
-
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MainActivity.this, AddActivity.class);
-//                startActivity(intent);
-//            }
-//        });
-
-//        this.mBtnBreakfast.setOnClickListener(this);
-//        this.mTxtEmptyListCompanies = (TextView) findViewById(R.id.txt_empty_list_companies);
-//        this.mBtnAddCompany = (ImageButton) fi ndViewById(R.id.btn_add_company);
-//        this.mListviewCompanies.setOnItemClickListener(this);
-//        this.mListviewCompanies.setOnItemLongClickListener(this);
-//        this.mBtnAddCompany.setOnClickListener(this);
-    }
-
-//    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btnBreakfast:
-                Intent intent = new Intent(this, AddActivity.class);
-                startActivity(intent);
-//                startActivityForResult(intent, REQUEST_CODE_ADD_COMPANY);
-                break;
-
-            default:
-                break;
-        }
     }
 
     @Override
@@ -197,12 +136,12 @@ public class MainActivity extends BaseActivity implements OnItemClickListener, V
         return result;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Meal clickedMeal = mAdapter.getBrItem(position);
-        Log.d(TAG, "clickedItem : " + clickedMeal.getType());
-        Intent intent = new Intent(this, AddActivity.class);
+//    @Override
+//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//        Meal clickedMeal = mAdapter.getBrItem(position);
+//        Log.d(TAG, "clickedItem : " + clickedMeal.getType());
+//        Intent intent = new Intent(this, AddActivity.class);
         //intent.putExtra(AddActivity.EXTRA_SELECTED_COMPANY_ID, Meal.getId());
-        startActivity(intent);
-    }
+//        startActivity(intent);
+//    }
 }

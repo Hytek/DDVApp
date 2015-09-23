@@ -47,16 +47,16 @@ public class TabBreakfast extends Fragment implements View.OnClickListener {
         this.mMealDao = new MealDAO(getActivity());
 
         maaltid = getActivity().getIntent().getIntExtra("maaltid", -1);
-//        Toast.makeText(getActivity(), "maaltidID i TabBreakfast er " + maaltid, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "maaltidID i TabBreakfast er " + maaltid, Toast.LENGTH_LONG).show();
         mAddDescription = (EditText) view.findViewById(R.id.tabBrAddDescription);
 
         Meal description = mMealDao.getMealById(maaltid);
 
-        if (description.getDescription().length() < 12) {
-            mAddDescription.setText(description.getDescription());
-        } else {
-            mAddDescription.setText(description.getDescription().substring(12));
-        }
+        //if (description.getDescription().length() < 12) {
+//            mAddDescription.setText(description.getDescription());
+  //      } else {
+            mAddDescription.setText(description.getDescription().substring(13));
+    //    }
         mAddDescription.setSelection(mAddDescription.getText().length());
 
         mBtnAdd = (Button) view.findViewById(R.id.btn_add);
@@ -74,18 +74,18 @@ public class TabBreakfast extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.btn_add:
                 Editable description = mAddDescription.getText();
-                if (!TextUtils.isEmpty(description) && maaltid == -1) {
+                if (!TextUtils.isEmpty(description) && maaltid < 5) {
                     // add the meal to database
-                    Meal createdMeal = mMealDao.createMeal(1, "Morgenmad: \n" + description.toString());
+                    Meal createdMeal = mMealDao.createMeal(1, "Morgenmad:  \n" + description.toString());
 
                     Log.d(TAG, "added meal : " + createdMeal.getType());
                     Toast.makeText(getActivity(), R.string.breakfast_created_successfully, Toast.LENGTH_LONG).show();
                     getActivity().finish();
                     Intent intent = new Intent(getActivity(), MainActivity.class);
                     startActivity(intent);
-                } else if (!TextUtils.isEmpty(description) && maaltid != -1) {
+                } else if (!TextUtils.isEmpty(description) && maaltid > 4) {
                     // update meal in database
-                    Meal createdMeal = mMealDao.updateMeal(maaltid, 1, "Morgenmad: \n" + description.toString());
+                    Meal createdMeal = mMealDao.updateMeal(maaltid, 1, "Morgenmad:  \n" + description.toString());
 
                     Log.d(TAG, "added meal : " + createdMeal.getType());
                     Toast.makeText(getActivity(), R.string.breakfast_created_successfully, Toast.LENGTH_LONG).show();
