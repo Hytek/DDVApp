@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.binarymake.ddvapp.MainActivity;
+import com.binarymake.ddvapp.activities.MainActivity;
 import com.binarymake.ddvapp.R;
 import com.binarymake.ddvapp.dao.MealDAO;
 import com.binarymake.ddvapp.model.Meal;
@@ -47,7 +47,7 @@ public class TabBreakfast extends Fragment implements View.OnClickListener {
         this.mMealDao = new MealDAO(getActivity());
 
         maaltid = getActivity().getIntent().getIntExtra("maaltid", -1);
-        Toast.makeText(getActivity(), "maaltidID i TabBreakfast er " + maaltid, Toast.LENGTH_LONG).show();
+//        Toast.makeText(getActivity(), "maaltidID i TabBreakfast er " + maaltid, Toast.LENGTH_LONG).show();
         mAddDescription = (EditText) view.findViewById(R.id.tabBrAddDescription);
 
         Meal description = mMealDao.getMealById(maaltid);

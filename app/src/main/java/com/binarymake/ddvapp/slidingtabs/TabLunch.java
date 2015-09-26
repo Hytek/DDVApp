@@ -15,7 +15,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.binarymake.ddvapp.MainActivity;
+import com.binarymake.ddvapp.activities.MainActivity;
 import com.binarymake.ddvapp.R;
 import com.binarymake.ddvapp.dao.MealDAO;
 import com.binarymake.ddvapp.model.Meal;

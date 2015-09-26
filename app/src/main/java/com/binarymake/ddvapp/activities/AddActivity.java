@@ -10,8 +10,6 @@ import android.widget.Toast;
 import com.binarymake.ddvapp.R;
 import com.binarymake.ddvapp.slidingtabs.SlidingTabLayout;
 import com.binarymake.ddvapp.slidingtabs.ViewPagerAdapter;
-import com.binarymake.ddvapp.dao.MealDAO;
-import com.binarymake.ddvapp.model.Meal;
 
 /**
  * Created by Jakob on 26-08-2015.
@@ -19,34 +17,24 @@ import com.binarymake.ddvapp.model.Meal;
 
 public class AddActivity extends BaseActivity {
 
-    // Declaring Your View and Variables
-    Toolbar toolbar;
     ViewPager pager;
     ViewPagerAdapter adapter;
     SlidingTabLayout tabs;
     CharSequence Titles[] = {"Morgenmad", "Frokost", "Aftensmad", "Mellemmåltid"};
     int Numboftabs = 4;
-    private int dag;
+//    private int dag;
     private int tidspunkt;
-    private int maaltid;
+//    private int maaltid;
 
     //@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
-        dag = getIntent().getIntExtra("dag", -1);
+//        dag = getIntent().getIntExtra("dag", -1);
         tidspunkt = getIntent().getIntExtra("tidspunkt", -1);
-        maaltid = getIntent().getIntExtra("maaltid", -1);
-        Toast.makeText(this, "dag er "+dag+" tid er "+tidspunkt+" maaltidID i AddActivity er "+ maaltid, Toast.LENGTH_LONG).show();
-
-//        activateToolbar(2);
-
-        // Creating The Toolbar and setting it as the Toolbar for the activity
-
-//        toolbar = (Toolbar) findViewById(R.id.tool_bar);
-//        setSupportActionBar(toolbar);
-
+//        maaltid = getIntent().getIntExtra("maaltid", -1);
+//        Toast.makeText(this, "dag er " + dag + " tid er " + tidspunkt + " maaltidID i AddActivity er " + maaltid, Toast.LENGTH_LONG).show();
 
         // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
         adapter = new ViewPagerAdapter(getSupportFragmentManager(), Titles, Numboftabs);

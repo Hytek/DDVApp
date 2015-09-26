@@ -31,24 +31,20 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         {
             TabBreakfast tabBreakfast = new TabBreakfast();
             return tabBreakfast;
-        }
-        else if (position == 1) // if the position is 1 we are returning the Second tab
+        } else if (position == 1) // if the position is 1 we are returning the Second tab
         {
             TabLunch tabLunch = new TabLunch();
             return tabLunch;
-        }
-        else if (position == 2)           // if the position is 2 we are returning the Third tab
+        } else if (position == 2)           // if the position is 2 we are returning the Third tab
         {
             TabDinner tabDinner = new TabDinner();
             return tabDinner;
-        }
-        else                            // if position is neither 0 through 2 then it must be Fourth tab
+        } else                            // if position is neither 0 through 2 then it must be Fourth tab
 
         {
             TabSnack tabSnack = new TabSnack();
             return tabSnack;
         }
-
 
     }
 

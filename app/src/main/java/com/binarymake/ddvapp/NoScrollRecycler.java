@@ -1,13 +1,14 @@
 package com.binarymake.ddvapp;
 
+/**
+ * Created by Jakob on 26-08-2015.
+ */
+
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
-/**
- * Created by Jakob on 26-08-2015.
- */
 public class NoScrollRecycler extends RecyclerView {
 
     public NoScrollRecycler(Context context) {

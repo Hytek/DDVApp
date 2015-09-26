@@ -14,16 +14,16 @@ public class Meal implements Serializable {
     private int mId;
     private int mType;
     private String mDescription;
-//    private String mPhoneNumber;
+    private String mCreateDate;
 //    private String mWebsite;
 
     public Meal() {
     }
 
-    public Meal(int type, String description) {
+    public Meal(int type, String description, String createDate) {
         this.mType = type;
         this.mDescription = description;
-//        this.mPhoneNumber = phoneNumber;
+        this.mCreateDate = createDate;
 //        this.mWebsite = website;
     }
 
@@ -57,15 +57,15 @@ public class Meal implements Serializable {
         this.mDescription = mDescription;
     }
 
-//    public String getPhoneNumber() {
-//
-//        return mPhoneNumber;
-//    }
+    public String getCreateDate() {
 
-//    public void setPhoneNumber(String mPhoneNumber) {
-//
-//        this.mPhoneNumber = mPhoneNumber;
-//    }
+        return mCreateDate;
+    }
+
+    public void setCreateDate(String mCreateDate) {
+
+        this.mCreateDate = mCreateDate;
+    }
 
 //      public String getWebsite() {
 //

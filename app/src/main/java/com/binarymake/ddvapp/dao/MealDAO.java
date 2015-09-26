@@ -12,7 +12,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.binarymake.ddvapp.model.Meal;
-import com.binarymake.ddvapp.model.MealWater;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +24,7 @@ public class MealDAO {
     private SQLiteDatabase mDatabase;
     private DatabaseHelper mDbHelper;
     private Context mContext;
-    private String[] mAllColumns = { DatabaseHelper.COLUMN_MEAL_ID,
+    private String[] mAllColumns = {DatabaseHelper.COLUMN_MEAL_ID,
             DatabaseHelper.COLUMN_MEAL_TYPE, DatabaseHelper.COLUMN_MEAL_DESCRIPTION};
 
     public MealDAO(Context context) {
@@ -78,48 +77,29 @@ public class MealDAO {
         return newMeal;
     }
 
-    public void deleteMeal(Meal meal) {
-        long id = meal.getId();
-        // delete all mealWaters of this meal
-        MealWaterDAO mealWaterDao = new MealWaterDAO(mContext);
-        List<MealWater> listMealWater = mealWaterDao.getAllWater();
-        if (listMealWater != null && !listMealWater.isEmpty()) {
-            for (MealWater e : listMealWater) {
-                mealWaterDao.deleteMealWater(e);
-            }
-        }
-
-        System.out.println("the deleted meal has the id: " + id);
-        mDatabase.delete(DatabaseHelper.TABLE_MEALS, DatabaseHelper.COLUMN_MEAL_ID
-                + " = " + id, null);
-    }
+//    public void deleteMeal(Meal meal) {
+//        long id = meal.getId();
+//        // delete meal
+//        if (meal != null) {
+//            System.out.println("the deleted meal has the id: " + id);
+//            mDatabase.delete(DatabaseHelper.TABLE_MEALS, DatabaseHelper.COLUMN_MEAL_ID
+//                    + " = " + id, null);
+//        }
+//    }
 
     public List<Meal> getAllMeals() {
         List<Meal> listMeals = new ArrayList<>();
 
         Cursor query = mDatabase.rawQuery("SELECT * from meal", null);
-        if(query.moveToFirst()) {
+        if (query.moveToFirst()) {
             do {
 
                 // Cycle through all records
                 Meal meal = cursorToMeal(query);
                 listMeals.add(meal);
-            } while(query.moveToNext());
+            } while (query.moveToNext());
         }
 
-//        Cursor cursor = mDatabase.query(DatabaseHelper.TABLE_MEALS, mAllColumns,
-//                null, null, null, null, null);
-//        if (cursor != null) {
-//            cursor.moveToFirst();
-//            while (!cursor.isAfterLast()) {
-//                Meal meal = cursorToMeal(cursor);
-//                listMeals.add(meal);
-//                cursor.moveToNext();
-//            }
-
-            // make sure to close the cursor
-//            cursor.close();
-//        }
         return listMeals;
     }
 
@@ -127,13 +107,13 @@ public class MealDAO {
         List<Meal> listBrMeals = new ArrayList<Meal>();
 
         Cursor query = mDatabase.rawQuery("SELECT * from meal WHERE meal_type = 1", null);
-        if(query.moveToFirst()) {
+        if (query.moveToFirst()) {
             do {
 
                 // Cycle through all records
                 Meal meal = cursorToMeal(query);
                 listBrMeals.add(meal);
-            } while(query.moveToNext());
+            } while (query.moveToNext());
         }
         return listBrMeals;
     }
@@ -142,13 +122,13 @@ public class MealDAO {
         List<Meal> listLuMeals = new ArrayList<Meal>();
 
         Cursor query = mDatabase.rawQuery("SELECT * from meal WHERE meal_type = 2", null);
-        if(query.moveToFirst()) {
+        if (query.moveToFirst()) {
             do {
 
                 // Cycle through all records
                 Meal meal = cursorToMeal(query);
                 listLuMeals.add(meal);
-            } while(query.moveToNext());
+            } while (query.moveToNext());
         }
         return listLuMeals;
     }
@@ -157,13 +137,13 @@ public class MealDAO {
         List<Meal> listDiMeals = new ArrayList<Meal>();
 
         Cursor query = mDatabase.rawQuery("SELECT * from meal WHERE meal_type = 3", null);
-        if(query.moveToFirst()) {
+        if (query.moveToFirst()) {
             do {
 
                 // Cycle through all records
                 Meal meal = cursorToMeal(query);
                 listDiMeals.add(meal);
-            } while(query.moveToNext());
+            } while (query.moveToNext());
         }
         return listDiMeals;
     }
@@ -172,13 +152,13 @@ public class MealDAO {
         List<Meal> listSnMeals = new ArrayList<Meal>();
 
         Cursor query = mDatabase.rawQuery("SELECT * from meal WHERE meal_type = 4", null);
-        if(query.moveToFirst()) {
+        if (query.moveToFirst()) {
             do {
 
                 // Cycle through all records
                 Meal meal = cursorToMeal(query);
                 listSnMeals.add(meal);
-            } while(query.moveToNext());
+            } while (query.moveToNext());
         }
         return listSnMeals;
     }
@@ -186,7 +166,7 @@ public class MealDAO {
     public Meal getMealById(int id) {
         Cursor cursor = mDatabase.query(DatabaseHelper.TABLE_MEALS, mAllColumns,
                 DatabaseHelper.COLUMN_MEAL_ID + " = ?",
-                new String[] { String.valueOf(id) }, null, null, null);
+                new String[]{String.valueOf(id)}, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }

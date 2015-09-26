@@ -1,36 +1,27 @@
-package com.binarymake.ddvapp;
+package com.binarymake.ddvapp.activities;
 
 /**
  * Created by Jakob on 03-09-2015.
  */
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
-import android.widget.AdapterView.OnItemClickListener;
-
-import com.binarymake.ddvapp.activities.AddActivity;
-import com.binarymake.ddvapp.activities.BaseActivity;
+import com.binarymake.ddvapp.R;
 import com.binarymake.ddvapp.adapter.ListMealsAdapter;
+import com.binarymake.ddvapp.adapter.WeeklyAdapter;
 import com.binarymake.ddvapp.dao.MealDAO;
 import com.binarymake.ddvapp.model.Meal;
+import com.binarymake.ddvapp.model.WeeklyInfo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
-
-    public static final String TAG = "MainActivity";
-
-//    public static final int REQUEST_CODE_ADD_COMPANY = 40;
 
     private ListView mListviewMeals;
 
@@ -69,7 +60,6 @@ public class MainActivity extends BaseActivity {
 
         WeeklyAdapter oa = new WeeklyAdapter(createOverviewList());
         mRecyclerViewWeekly.setAdapter(oa);
-
     }
 
     private void initViews() {
@@ -94,31 +84,13 @@ public class MainActivity extends BaseActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-        //}
 
         return super.onOptionsItemSelected(item);
     }
 
-//    private List<MealInfo> createWeeklyList(int size) {
-
-//        List<MealInfo> result = new ArrayList<MealInfo>();
-//        for (int i = 1; i <= size; i++) {
-//            MealInfo wi = new MealInfo();
-//            wi.breakfast = MealInfo.BREAKFAST_PREFIX;
-//            wi.dinner = MealInfo.DINNER_PREFIX;
-//            wi.lunch = MealInfo.LUNCH_PREFIX;
-//            wi.snacks = MealInfo.SNACKS_PREFIX;
-//            wi.weekday = MealInfo.WEEKDAY_PREFIX + i;
-//            result.add(wi);
-//        }
-
-//          return result;
-//    }
-
     private List<WeeklyInfo> createOverviewList() {
 
         List<WeeklyInfo> result = new ArrayList<WeeklyInfo>();
-        //for (int i=1; i <= size; i++) {
         WeeklyInfo oi = new WeeklyInfo();
         oi.meat1 = WeeklyInfo.MEAT1_PREFIX + "0/3(5)";
         oi.fish1 = WeeklyInfo.FISH1_PREFIX + "0/3(5)";
@@ -131,17 +103,8 @@ public class MainActivity extends BaseActivity {
         oi.cereal = WeeklyInfo.CEREAL_PREFIX + "0/(5)";
 
         result.add(oi);
-        //}
 
         return result;
     }
 
-//    @Override
-//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//        Meal clickedMeal = mAdapter.getBrItem(position);
-//        Log.d(TAG, "clickedItem : " + clickedMeal.getType());
-//        Intent intent = new Intent(this, AddActivity.class);
-        //intent.putExtra(AddActivity.EXTRA_SELECTED_COMPANY_ID, Meal.getId());
-//        startActivity(intent);
-//    }
 }
