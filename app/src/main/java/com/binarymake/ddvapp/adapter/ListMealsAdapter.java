@@ -40,11 +40,7 @@ public class ListMealsAdapter extends ArrayAdapter<Meal> {
 
     @Override
     public int getCount() {
-//        int result = mBrItems.size();
-//        if (result > 7){
-//            result = 7;
-//        }
-//        return result;
+
         return 7;
     }
 
@@ -94,11 +90,6 @@ public class ListMealsAdapter extends ArrayAdapter<Meal> {
 
         return snResult;
     }
-
-//    @Override
-//    public long getItemId(int position) {
-//        return (getBrItems() != null && !getBrItems().isEmpty()) ? getBrItems().get(position).getId() : position;
-//    }
 
     @Override
     public View getView(final int position, final View convertView, final ViewGroup parent) {
@@ -249,5 +240,4 @@ public class ListMealsAdapter extends ArrayAdapter<Meal> {
         TextView txtDiDescription;
         TextView txtSnDescription;
     }
-
 }

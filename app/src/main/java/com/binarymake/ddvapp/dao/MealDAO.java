@@ -180,8 +180,6 @@ public class MealDAO {
         meal.setId(cursor.getInt(0));
         meal.setType(cursor.getInt(1));
         meal.setDescription(cursor.getString(2));
-//        meal.setWebsite(cursor.getString(3));
-//        meal.setPhoneNumber(cursor.getString(4));
         return meal;
     }
 

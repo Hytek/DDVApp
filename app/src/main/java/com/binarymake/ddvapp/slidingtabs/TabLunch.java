@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.binarymake.ddvapp.activities.MainActivity;
 import com.binarymake.ddvapp.R;
+import com.binarymake.ddvapp.activities.MainActivity;
 import com.binarymake.ddvapp.dao.MealDAO;
 import com.binarymake.ddvapp.model.Meal;
 
@@ -49,12 +49,8 @@ public class TabLunch extends Fragment implements View.OnClickListener {
         mAddDescription = (EditText) view.findViewById(R.id.tabLuAddDescription);
 
         Meal description = mMealDao.getMealById(maaltid);
+        mAddDescription.setText(description.getDescription().substring(13));
 
-//        if (description.getDescription().length() < 10) {
-//            mAddDescription.setText(description.getDescription());
-//        } else {
-            mAddDescription.setText(description.getDescription().substring(13));
-//        }
         mAddDescription.setSelection(mAddDescription.getText().length());
 
         mBtnAdd = (Button) view.findViewById(R.id.btn_add);

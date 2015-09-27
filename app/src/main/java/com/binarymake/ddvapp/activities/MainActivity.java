@@ -106,5 +106,4 @@ public class MainActivity extends BaseActivity {
 
         return result;
     }
-
 }

@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.binarymake.ddvapp.activities.MainActivity;
 import com.binarymake.ddvapp.R;
+import com.binarymake.ddvapp.activities.MainActivity;
 import com.binarymake.ddvapp.dao.MealDAO;
 import com.binarymake.ddvapp.model.Meal;
 
@@ -50,11 +50,7 @@ public class TabSnack extends Fragment implements View.OnClickListener {
 
         Meal description = mMealDao.getMealById(maaltid);
 
-//        if (description.getDescription().length() < 14) {
-//            mAddDescription.setText(description.getDescription());
-//        } else {
-            mAddDescription.setText(description.getDescription().substring(13));
-//        }
+        mAddDescription.setText(description.getDescription().substring(13));
         mAddDescription.setSelection(mAddDescription.getText().length());
 
         mBtnAdd = (Button) view.findViewById(R.id.btn_add);

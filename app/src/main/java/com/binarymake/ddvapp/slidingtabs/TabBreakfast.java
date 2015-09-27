@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.binarymake.ddvapp.activities.MainActivity;
 import com.binarymake.ddvapp.R;
+import com.binarymake.ddvapp.activities.MainActivity;
 import com.binarymake.ddvapp.dao.MealDAO;
 import com.binarymake.ddvapp.model.Meal;
 
@@ -52,20 +52,13 @@ public class TabBreakfast extends Fragment implements View.OnClickListener {
 
         Meal description = mMealDao.getMealById(maaltid);
 
-        //if (description.getDescription().length() < 12) {
-//            mAddDescription.setText(description.getDescription());
-  //      } else {
-            mAddDescription.setText(description.getDescription().substring(13));
-    //    }
+        mAddDescription.setText(description.getDescription().substring(13));
+
         mAddDescription.setSelection(mAddDescription.getText().length());
 
         mBtnAdd = (Button) view.findViewById(R.id.btn_add);
         mBtnAdd.setOnClickListener(this);
         mAddMeat1 = (EditText) view.findViewById(R.id.tabBrAddMeat1);
-//        mAddFish1 = (EditText) view.findViewById(R.id.tabBrAddDescription);
-//        mAddEggs = (EditText) view.findViewById(R.id.tabBrAddDescription);
-//        mAddMeat2 = (EditText) view.findViewById(R.id.tabBrAddDescription);
-//        mAddMeat3 = (EditText) view.findViewById(R.id.tabBrAddDescription);
 
         return view;
     }

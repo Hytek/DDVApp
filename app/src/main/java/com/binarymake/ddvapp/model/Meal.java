@@ -15,7 +15,6 @@ public class Meal implements Serializable {
     private int mType;
     private String mDescription;
     private String mCreateDate;
-//    private String mWebsite;
 
     public Meal() {
     }
@@ -24,7 +23,6 @@ public class Meal implements Serializable {
         this.mType = type;
         this.mDescription = description;
         this.mCreateDate = createDate;
-//        this.mWebsite = website;
     }
 
     public int getId() {
@@ -67,13 +65,4 @@ public class Meal implements Serializable {
         this.mCreateDate = mCreateDate;
     }
 
-//      public String getWebsite() {
-//
-//        return mWebsite;
-//    }
-
-//    public void setWebsite(String website) {
-//
-//        this.mWebsite = website;
-//    }
 }
